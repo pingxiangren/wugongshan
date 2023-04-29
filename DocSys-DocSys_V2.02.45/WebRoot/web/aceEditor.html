@@ -1,0 +1,61 @@
+<script src="static/ace-builds/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/aceEditor.js"></script>
+<script type="text/javascript" src="js/AceTextEditor.js"></script>
+<style type="text/css" media="screen">
+  body {
+      overflow: hidden;
+  }
+
+  #editor {
+      margin: 39px 0 0 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+  }
+</style>
+<div id="textEditor">
+	<div id="textEditorToolBar" style="height:40px;">
+		<div class="editormd-toolbar" style="display: block;">
+			<div class="editormd-toolbar-container">
+				<ul id="toolBarMenu" class="editormd-menu" style="display:none;">
+					<li><a href="javascript:;" onclick="AceTextEditor.saveDoc();" title="保存（Ctrl+S）" unselectable="on"><i class="fa fa-save" name="save" unselectable="on"></i></a></li>
+					<li class="divider" unselectable="on">|</li>
+					<li><a href="javascript:;" onclick="AceTextEditor.ctrlZ();" title="撤销（Ctrl+Z）" unselectable="on"><i class="fa fa-undo" name="undo" unselectable="on"></i></a></li>
+					<li><a href="javascript:;" onclick="AceTextEditor.ctrlY();" title="反撤销（Ctrl+Y）" unselectable="on"><i class="fa fa-repeat" name="redo" unselectable="on"></i></a></li>
+					<li class="divider" unselectable="on">|</li>
+				</ul>
+				<ul id="switchEditMode" class="editormd-menu" style="position:absolute; right:5px;">
+					<li id="textEditorCloseBtn" style="display:none;">
+						<a href="javascript:;" onclick="AceTextEditor.exitEdit()" title="退出编辑" unselectable="on">
+							<i class="fa fa-close" name="exitEdit" unselectable="on"></i>
+						</a>
+					</li>
+					<li id="textEditorEditBtn" style="display:none;">
+						<a href="javascript:;" onclick="AceTextEditor.enableEdit()" title="编辑" unselectable="on">
+							<i class="fa fa-edit" name="edit" unselectable="on"></i>
+						</a>
+					</li>
+				</ul>				
+			</div>
+		</div>
+	</div>
+	<div class="textEditorContent" style="min-height: 600px;">
+		<pre id="editor">
+		</pre>
+	</div>
+</div>
+
+<script type="text/javascript">
+	//获取窗口的高度并设置高度
+	var height =  getWinHeight()-100;
+	var width = getWinWidth();
+	document.getElementById('textEditor').style.height = height + "px";
+	document.getElementById('textEditor').style.width = width + "px";
+	
+	//textEditorPageInit will be called in dialog callback which was in DocSys.js
+	//AceTextEditor.textEditorPageInit(docInfo);
+</script>
+
+
